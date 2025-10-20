@@ -1,0 +1,4 @@
+node_modules
+dist
+node-v20.11.0-darwin-x64
+storybook-static

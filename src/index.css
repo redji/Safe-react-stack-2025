@@ -1,0 +1,33 @@
+/* Modern React Stack - Material-UI Styles */
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
+
+/* Ensure proper scrolling */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Material-UI overrides */
+.MuiCssBaseline-root {
+  height: 100%;
+}
