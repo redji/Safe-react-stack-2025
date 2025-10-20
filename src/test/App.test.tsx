@@ -1,20 +1,20 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen } from '@testing-library/react'
-import { ReactNode } from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import { describe, it, expect, vi } from 'vitest'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { render, screen } from "@testing-library/react";
+import { ReactNode } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { describe, it, expect, vi } from "vitest";
 
-import App from '../App'
-import { ThemeProvider } from '../components/ThemeProvider'
+import App from "../App";
+import { ThemeProvider } from "../components/ThemeProvider";
 
 // Mock the API function
-vi.mock('../utils/api', () => ({
+vi.mock("../utils/api", () => ({
   fetchPosts: vi.fn(() =>
     Promise.resolve([
-      { id: 1, title: 'Test Post', body: 'Test body', userId: 1 },
-    ])
+      { id: 1, title: "Test Post", body: "Test body", userId: 1 },
+    ]),
   ),
-}))
+}));
 
 const createTestQueryClient = () =>
   new QueryClient({
@@ -25,30 +25,30 @@ const createTestQueryClient = () =>
         gcTime: 0,
       },
     },
-  })
+  });
 
 const TestWrapper = ({ children }: { children: ReactNode }) => {
-  const queryClient = createTestQueryClient()
+  const queryClient = createTestQueryClient();
   return (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>{children}</BrowserRouter>
       </QueryClientProvider>
     </ThemeProvider>
-  )
-}
+  );
+};
 
-describe('App', () => {
-  it('renders the home page', async () => {
+describe("App", () => {
+  it("renders the home page", async () => {
     render(
       <TestWrapper>
         <App />
-      </TestWrapper>
-    )
+      </TestWrapper>,
+    );
 
     // Wait for the content to load
     expect(
-      await screen.findByText('Welcome to Modern React Stack')
-    ).toBeInTheDocument()
-  })
-})
+      await screen.findByText("Welcome to Modern React Stack"),
+    ).toBeInTheDocument();
+  });
+});

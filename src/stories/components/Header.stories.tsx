@@ -1,51 +1,51 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { BrowserRouter } from 'react-router-dom'
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { BrowserRouter } from "react-router-dom";
 
-import { Header } from '../../components/Layout/Header'
+import { Header } from "../../components/Layout/Header";
 
 const meta: Meta<typeof Header> = {
-  title: 'Components/Header',
+  title: "Components/Header",
   component: Header,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     docs: {
       description: {
         component:
-          'Application header with navigation and theme toggle functionality.',
+          "Application header with navigation and theme toggle functionality.",
       },
     },
   },
   decorators: [
-    Story => (
+    (Story) => (
       <BrowserRouter>
         <Story />
       </BrowserRouter>
     ),
   ],
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
 
 export const WithActiveHome: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Header with Home page active (simulated by setting location).',
+        story: "Header with Home page active (simulated by setting location).",
       },
     },
   },
-}
+};
 
 export const WithActiveAbout: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Header with About page active (simulated by setting location).',
+        story: "Header with About page active (simulated by setting location).",
       },
     },
   },
-}
+};

@@ -1,25 +1,25 @@
-import { Alert, AlertColor, Snackbar } from '@mui/material'
-import { SyntheticEvent } from 'react'
+import { Alert, AlertColor, Snackbar } from "@mui/material";
+import { SyntheticEvent } from "react";
 
 export interface NotificationProps {
-  message: string
-  severity?: AlertColor
-  autoHideDurationMs?: number
-  open?: boolean
-  onClose?: () => void
+  message: string;
+  severity?: AlertColor;
+  autoHideDurationMs?: number;
+  open?: boolean;
+  onClose?: () => void;
 }
 
 export function Notification({
   message,
-  severity = 'info',
+  severity = "info",
   autoHideDurationMs = 4000,
   open = true,
   onClose,
 }: NotificationProps) {
   const handleClose = (_: SyntheticEvent | unknown, reason?: string) => {
-    if (reason === 'clickaway') return
-    onClose?.()
-  }
+    if (reason === "clickaway") return;
+    onClose?.();
+  };
 
   return (
     <Snackbar
@@ -30,13 +30,13 @@ export function Notification({
       <Alert
         onClose={onClose}
         severity={severity}
-        variant='filled'
-        sx={{ width: '100%' }}
+        variant="filled"
+        sx={{ width: "100%" }}
       >
         {message}
       </Alert>
     </Snackbar>
-  )
+  );
 }
 
-export default Notification
+export default Notification;

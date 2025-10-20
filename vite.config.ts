@@ -1,21 +1,21 @@
-import { resolve } from 'path'
+import { resolve } from "path";
 
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-      '@/components': resolve(__dirname, './src/components'),
-      '@/hooks': resolve(__dirname, './src/hooks'),
-      '@/context': resolve(__dirname, './src/context'),
-      '@/utils': resolve(__dirname, './src/utils'),
-      '@/types': resolve(__dirname, './src/types'),
-      '@/features': resolve(__dirname, './src/features'),
-      '@/assets': resolve(__dirname, './src/assets'),
+      "@": resolve(__dirname, "./src"),
+      "@/components": resolve(__dirname, "./src/components"),
+      "@/hooks": resolve(__dirname, "./src/hooks"),
+      "@/context": resolve(__dirname, "./src/context"),
+      "@/utils": resolve(__dirname, "./src/utils"),
+      "@/types": resolve(__dirname, "./src/types"),
+      "@/features": resolve(__dirname, "./src/features"),
+      "@/assets": resolve(__dirname, "./src/assets"),
     },
   },
   server: {
@@ -23,29 +23,29 @@ export default defineConfig({
     open: true,
   },
   build: {
-    outDir: 'dist',
+    outDir: "dist",
     sourcemap: true,
-    target: 'es2020',
+    target: "es2020",
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          query: ['@tanstack/react-query'],
-          state: ['zustand'],
+          vendor: ["react", "react-dom"],
+          router: ["react-router-dom"],
+          query: ["@tanstack/react-query"],
+          state: ["zustand"],
         },
       },
     },
   },
   test: {
     globals: true,
-    environment: 'jsdom',
-    setupFiles: ['./src/test/setup.ts'],
+    environment: "jsdom",
+    setupFiles: ["./src/test/setup.ts"],
     exclude: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/storybook-static/**',
-      '**/src/stories/**',
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/storybook-static/**",
+      "**/src/stories/**",
     ],
     // Disable browser mode to avoid connection issues
     browser: {
@@ -53,6 +53,6 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ['msw/node'],
+    exclude: ["msw/node"],
   },
-})
+});

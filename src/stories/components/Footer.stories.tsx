@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Footer } from '../../components/Layout/Footer'
+import { Footer } from "../../components/Layout/Footer";
 
 const meta: Meta<typeof Footer> = {
-  title: 'Components/Footer',
+  title: "Components/Footer",
   component: Footer,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     docs: {
       description: {
-        component: 'Application footer with copyright information.',
+        component: "Application footer with copyright information.",
       },
     },
   },
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};
